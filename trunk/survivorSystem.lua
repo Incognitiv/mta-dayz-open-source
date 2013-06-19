@@ -818,13 +818,14 @@ function onPlayerPlaceRoadflare(itemName)
 end
 addEvent("onPlayerPlaceRoadflare", true)
 addEventHandler("onPlayerPlaceRoadflare", getRootElement(), onPlayerPlaceRoadflare)
+
 function math.round(number, decimals, method)
   decimals = decimals or 0
   local factor = 10 ^ decimals
   if method == "ceil" or method == "floor" then
     return math[method](number * factor) / factor
   else
-    return tonumber("%." .. decimals .. "f":format(number))
+    return tonumber(string.format("%." .. (decimals or 0) .. "f", number))
   end
 end
 local chatRadius = 15

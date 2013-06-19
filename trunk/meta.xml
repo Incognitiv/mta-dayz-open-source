@@ -71,9 +71,78 @@
     <!-- Arguments: gangName, accountName. Returns: true or false. -->
     <settings>
         <setting name="*column_name" value="Group" />
-        <setting name="*gang_list_command" value="gangs" />
-        <setting name="*gang_create_command" value="creategang" />
+        <setting name="*gang_list_command" value="gangi" />
+        <setting name="*gang_create_command" value="stworzgroupe" />
+		<setting name="*news1" value="#Update\n Nowy panel logowania\ntest\ntest?"
+					friendlyname="News 1"
+					group="News 1"
+					accept="*"
+					desc="Newest News."
+		/>
+		<setting name="*news1new" value="true"
+						friendlyname="News 1 bool"
+						group="News 1"
+						accept="*"
+						desc="News."
+		/>
+		<setting name="*news2" value="-"
+						friendlyname="News 2"
+						group="News 2"
+						accept="*"
+						desc="News."
+		/>
+		<setting name="*news2new" value="false"
+						friendlyname="News 2 bool"
+						group="News 2"
+						accept="*"
+						desc="News."
+		/>
+		<setting name="*news3" value="-"
+						friendlyname="News 3"
+						group="News 3"
+						accept="*"
+						desc="News."
+		/>
+		<setting name="*news3new" value="false"
+						friendlyname="News 3 bool"
+						group="News 3"
+						accept="*"
+						desc="News."
+		/>
+		<setting name="*news4" value="-"
+						friendlyname="News 4"
+						group="News 4"
+						accept="*"
+						desc="News."
+		/>
+		<setting name="*news4new" value="false"
+						friendlyname="News 4 bool"
+						group="News 4"
+						accept="*"
+						desc="News."
+		/>
     </settings>
+	
+	<!-- login -->
+	<script src="login_panel.lua" type="server"/>
+	<script src="login_panel_c.lua" type="client"/>
+	<script src="login_textlib.lua" type="client"/>
+	
+	<file src="images/login/background_1.png"/>
+	<file src="images/login/tab.png"/>
+	<file src="images/login/box_background.png"/>
+	<file src="images/login/button_mouse.png"/>
+	<file src="images/login/button_standard.png"/>
+	<file src="images/login/construction.png"/>
+	<file src="images/login/login_icon.png"/>
+	<file src="images/login/on.png"/>
+	<file src="images/login/signup_icon.png"/>
+	<file src="images/login/new.png"/>
+	<file src="images/login/news.png"/>
+	<file src="fonts/font.ttf"/>
+	<file src="fonts/font2.ttf"/>
+	<!-- end login -->
+	
     <file src="images/scrollmenu_1.png" />
     <file src="images/background_scoreboard.png" />
     <file src="images/white.png" />
