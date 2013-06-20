@@ -1,30 +1,3 @@
-function cheackResourceRequirements(res)
-  local reason = false
-  if not string.find(getServerName(), "GTA:SA DayZ Version") then
-    reason = "Servername incorrect prefix #2"
-  end
-  if not string.find(getServerName(), "| dayz-mta.net |", 0, true) then
-    reason = "Servername incorrect prefix #1"
-  end
-  if getMaxPlayers() > 77 then
-    reason = "To much Slots."
-  end
-  if getResourceName(getThisResource()) == "DayZ" then
-  else
-    reason = "Resource name does not match."
-  end
-  if reason ~= false then
-    outputServerLog("Resource " .. getResourceName(res) .. " wasn't started (" .. reason .. ").")
-    outputChatBox("Resource " .. getResourceName(res) .. " wasn't started (" .. reason .. ").", getRootElement(), 255, 255, 255)
-  end
-end
-addEventHandler("onResourceStart", getResourceRootElement(getThisResource()), cheackResourceRequirements)
-function checkPlayerSlots()
-  if getMaxPlayers() > 77 then
-    stopResource(getResourceFromName("DayZ"))
-  end
-end
-setTimer(checkPlayerSlots, 10000, 4)
 local itemTable = {
   farm = {
     {
