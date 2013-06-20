@@ -15,12 +15,8 @@ local screenX, screenY = guiGetScreenSize()
 
 local font = {}
 local scale = 1
-if screenX < 1152 then
-	screenX = screenX / 1152
-end
-if screenX < 1024 then
-	outputChatBox("Zalecamy uzyc rozdzielczosci 1024x768, mniejsze moga kolidowac ze skryptami", 255, 0, 0)
-end
+if screenX < 1152 then screenX = screenX / 1152 end
+if screenX < 1024 then outputChatBox("Zalecamy użycie rozdzielczości o wymiarach przynajmniej 1024x768, mniejsze mogą powodować błędy w zalogowaniu się i kolidować ze skryptami.", 255, 0, 0) end
 
 font[-1] = guiCreateFont("fonts/font2.ttf", 12 * scale)
 font[0] = guiCreateFont("fonts/font.ttf", 14 * scale)
@@ -50,6 +46,7 @@ function markButton()
 	guiStaticImageLoadImage(parent, "images/login/button_mouse.png")
 	setElementData(getLocalPlayer(), "clickedButton", parent)
 	--playSound("sounds/login/button_click.ogg") -- na razie nie wlaczamy opcji dzwieku gdy kliknie sie w button
+	-- CZEMUUUUUU :((((((((((((
 end
 
 function unmarkButton(b, s)
@@ -91,7 +88,7 @@ function build_loginWindow()
 	-- tworzymy buttony i inne elementy do panelu logowania
 	background_front = guiCreateStaticImage(0.2, 0.25, 0.6, 0.5, "images/login/background_1.png", true)
 	tab_front = guiCreateStaticImage(0, 0, 1, 0.075, "images/login/tab.png", true, background_front)
-	headline = guiCreateLabel(0, 0.15, 1, 0.8, "MTA:DayZ - Welcome!", true, tab_front)
+	headline = guiCreateLabel(0, 0.15, 1, 0.8, "MTA:DayZ - Witamy!", true, tab_front)
 	guiSetFont(headline, font[2])
 	guiLabelSetHorizontalAlign(headline, "center")
 	guestInfo = guiCreateLabel(0.025, 0.1, 0.325, 0.3, versionString, true, background_front)
@@ -103,11 +100,11 @@ function build_loginWindow()
 	guiSetFont(loginInfo, font[1])
 	guiLabelSetHorizontalAlign(loginInfo, "center")
 	guiLabelSetColor(loginInfo, 50, 255, 50)
-	username = guiCreateLabel(0.025, 0.55, 0.325, 0.04, "Nazwa uzytkownika:", true, background_front)
+	username = guiCreateLabel(0.025, 0.55, 0.325, 0.04, "Nazwa użytkownika:", true, background_front)
 	guiSetFont(username, font[0])
 	guiLabelSetHorizontalAlign(username, "center")
 	loginEdit[1] = guiCreateEdit(0.1, 0.6, 0.175, 0.055, infoTable.account, true, background_front)
-	password = guiCreateLabel(0.025, 0.675, 0.325, 0.04, "Haslo:", true, background_front)
+	password = guiCreateLabel(0.025, 0.675, 0.325, 0.04, "Hasło:", true, background_front)
 	guiSetFont(password, font[0])
 	guiLabelSetHorizontalAlign(password, "center")
 	loginIcon = guiCreateStaticImage(0.1, 0.46, 0.03, 0.05, "images/login/login_icon.png", true, background_front)
@@ -118,22 +115,22 @@ function build_loginWindow()
 	guiSetFont(registerInfo, font[1])
 	guiLabelSetHorizontalAlign(registerInfo, "center")
 	guiLabelSetColor(registerInfo, 50, 255, 50)
-	username = guiCreateLabel(0.375, 0.25, 0.325, 0.04, "Nazwa uzytkownika:", true, background_front)
+	username = guiCreateLabel(0.375, 0.25, 0.325, 0.04, "Nazwa użytkownika:", true, background_front)
 	guiSetFont(username, font[0])
 	guiLabelSetHorizontalAlign(username, "center")
 	loginEdit[3] = guiCreateEdit(0.45, 0.3, 0.175, 0.055, "", true, background_front)
-	password = guiCreateLabel(0.375, 0.375, 0.325, 0.04, "Haslo:", true, background_front)
+	password = guiCreateLabel(0.375, 0.375, 0.325, 0.04, "Hasło:", true, background_front)
 	guiSetFont(password, font[0])
 	guiLabelSetHorizontalAlign(password, "center")
 	loginIcon = guiCreateStaticImage(0.45, 0.15, 0.03, 0.05, "images/login/signup_icon.png", true, background_front)
 	loginEdit[4] = guiCreateEdit(0.45, 0.425, 0.175, 0.055, "", true, background_front)
 	guiEditSetMasked(loginEdit[4], true)
-	password2 = guiCreateLabel(0.375, 0.5, 0.325, 0.04, "Powtorz haslo:", true, background_front)
+	password2 = guiCreateLabel(0.375, 0.5, 0.325, 0.04, "Powtórz hasło:", true, background_front)
 	guiSetFont(password2, font[0])
 	guiLabelSetHorizontalAlign(password2, "center")
 	loginEdit[5] = guiCreateEdit(0.45, 0.55, 0.175, 0.055, "", true, background_front)
 	guiEditSetMasked(loginEdit[5], true)
-	newsH = guiCreateLabel(0.726, 0.115, 0.25, 0.05, "Nowosci:", true, background_front)
+	newsH = guiCreateLabel(0.726, 0.115, 0.25, 0.05, "Nowości:", true, background_front)
 	guiSetFont(newsH, font[0])
 	guiLabelSetHorizontalAlign(newsH, "center")
 	guiLabelSetColor(newsH, 50, 255, 50)
@@ -177,8 +174,8 @@ function clickPanelButton(button, state)
 					if #username >= 3 and #password >= 6 then
 						triggerServerEvent("onClientSendLoginDataToServer", getLocalPlayer(), username, password)
 					else
-						reason = "Login nie moze byc krotszy niz 3 znaki, a haslo krotsze niz 6 znakow"
-						outputChatBox("[LOGIN:] " .. reason, 200, 200, 200)
+						reason = "Pseudonim nie może mieć mniej znaków niż 3, a hasło 6."
+						outputChatBox("[ZALOGUJ:] " .. reason, 200, 200, 200)
 					end
 				end
 			elseif info and info == "guest" then
@@ -191,12 +188,12 @@ function clickPanelButton(button, state)
 					if password1 == password2 then
 						triggerServerEvent("onClientSendRegisterDataToServer", getLocalPlayer(), username, password1)
 					else
-						reason = "Hasla roznia sie od siebie"
-						outputChatBox("[REGISTER:] " .. reason, 200, 200, 200)
+						reason = "Hasła różnią się od siebie."
+						outputChatBox("[ZAREJESTRUJ:] " .. reason, 200, 200, 200)
 					end
 				else
-					reason = "Login nie moze byc krotszy niz 3 znaki, a haslo krotsze niz 6 znakow"
-					outputChatBox("[REGISTER:] " .. reason, 200, 200, 200)
+						reason = "Pseudonim nie może mieć mniej znaków niż 3, a hasło 6."
+					outputChatBox("[ZAREJESTRUJ:] " .. reason, 200, 200, 200)
 				end
 			end
 		end
@@ -206,7 +203,7 @@ end
 addEventHandler("onClientClick", getRootElement(), clickPanelButton)
 
 function onClientGetNews(text1, text2, text3, text4, bool1, bool2, bool3, bool4)
-	local text1 = string:gsub(text1, "<br>", "\n")
+	local text1 = string:gsub(text1, "ALLAH AKBAR<br>", "\n")
 	local text2 = string:gsub(text2, "<br>", "\n")
 	local text3 = string:gsub(text3, "<br>", "\n")
 	local text4 = string:gsub(text4, "<br>", "\n")
