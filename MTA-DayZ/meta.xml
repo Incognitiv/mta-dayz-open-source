@@ -271,4 +271,28 @@
     <script src="bone_attach/attach_func.lua" />
     <script src="bone_attach/attach_func.lua" type="client" />
     <script src="bone_attach/bone_pos_rot.lua" type="client" />
+	<!-- Slothbot: -->
+	<file src="edf/flag/flag.png" />
+	<file src="edf/flag/goflagx.txd"/>
+	<file src="edf/flag/kmb_goflag.col"/>
+	<file src="edf/flag/kmb_goflag.dff"/>
+
+	<script src="sbclient.lua" type="client"/>
+	<script src="sbserver.lua"/>
+
+	<export function="spawnBot" type="server"/>
+	<export function="setBotHunt" type="server"/>
+	<export function="setBotWait" type="server"/>
+	<export function="setBotChase" type="server"/>
+	<export function="setBotFollow" type="server"/>
+	<export function="setBotGuard" type="server"/>
+	<export function="setBotTeam" type="server"/>
+	<export function="getBotTeam" type="server"/>
+	<export function="getBotAttackEnabled" type="server"/>
+	<export function="setBotAttackEnabled" type="server"/>
+	<export function="getBotMode" type="server"/>
+	<export function="isPedBot" type="server"/>
+	<export function="setBotWeapon" type="server"/>
+
+	<export function="getTimers" type="client"/>
 </meta>
