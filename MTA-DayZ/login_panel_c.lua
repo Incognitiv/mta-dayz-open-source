@@ -9,7 +9,7 @@ local versionString = [[
 	MTA:DayZ
 	
 	Wersja: 0.2.0490
-	Ostatnia aktualizacja: 19/06/2013]]
+	Ostatnia aktualizacja: 20/06/2013]]
 
 local screenX, screenY = guiGetScreenSize()
 
@@ -19,10 +19,10 @@ if screenX < 1152 then screenX = screenX / 1152 end
 if screenX < 1024 then outputChatBox("Zalecamy użycie rozdzielczości o wymiarach przynajmniej 1024x768, mniejsze mogą powodować błędy w zalogowaniu się i kolidować ze skryptami.", 255, 0, 0) end
 
 font[-1] = guiCreateFont("fonts/font2.ttf", 12 * scale)
-font[0] = guiCreateFont("fonts/font.ttf", 14 * scale)
-font[1] = guiCreateFont("fonts/font.ttf", 24 * scale)
-font[2] = guiCreateFont("fonts/font.ttf", 28 * scale)
-font[3] = guiCreateFont("fonts/font.ttf", 32 * scale)
+font[0] = guiCreateFont("fonts/font.ttf", 7 * scale)
+font[1] = guiCreateFont("fonts/font.ttf", 12 * scale)
+font[2] = guiCreateFont("fonts/font.ttf", 14 * scale)
+font[3] = guiCreateFont("fonts/font.ttf", 16 * scale)
 
 function createButton(x, y, width, height, text, bool, parent, info)
 	button = guiCreateStaticImage(x, y, width, height, "images/login/button_standard.png", bool, parent or nil)
