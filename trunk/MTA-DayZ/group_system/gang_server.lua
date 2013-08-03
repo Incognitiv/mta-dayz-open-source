@@ -7,7 +7,7 @@ addEventHandler("onResourceStart", resourceRoot, function()
   for index, player in ipairs(getElementsByType("player")) do
     local gang = getAccountGang(getAccountName(getPlayerAccount(player)))
     setElementData(player, "gang", gang)
-    bindKey(player, get("panel_bind"), "down", showGangPanel)
+    bindKey(player, "F1", "down", showGangPanel)
   end
 end)
 addEventHandler("onPlayerLogin", root, function(_, account)
