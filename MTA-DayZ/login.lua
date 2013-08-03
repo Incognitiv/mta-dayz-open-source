@@ -328,7 +328,7 @@ function saveAccounts()
     local x, y, z = getElementPosition(source)
     setAccountData(account, "last_x", x)
     setAccountData(account, "last_y", y)
-    setAccountData(account, "last_z", z)
+    setAccountData(account, "last_z", z+1)
     destroyElement(getElementData(source, "playerCol"))
   end
   setElementData(source, "logedin", false)
@@ -344,7 +344,7 @@ function saveAccounts2()
       local x, y, z = getElementPosition(player)
       setAccountData(account, "last_x", x)
       setAccountData(account, "last_y", y)
-      setAccountData(account, "last_z", z)
+      setAccountData(account, "last_z", z+1)
     end
   end
 end
